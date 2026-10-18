@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>香江歲月：我的人生自傳｜香港長者互動懷緬遊戲</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Noto Serif TC & Noto Sans TC for authentic Hong Kong print typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#FBF7F0',
+            paperDark: '#F2E9D8',
+            paperCard: '#FFFDF9',
+            ink: '#1E1B18',
+            inkMuted: '#574F47',
+            stampRed: '#C83E2B',
+            stampRedDark: '#9E2B1B',
+            jade: '#1F6E58',
+            jadeDark: '#145240',
+            jadeLight: '#E6F2EE',
+            gold: '#C88A2B',
+            goldLight: '#FDF5E6',
+            borderWarm: '#D8CBB8'
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Georgia', 'serif'],
+            sans: ['"Noto Sans TC"', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Root Accessibility Scaling */
+    :root {
+      --base-font-size: 18px;
+    }
+    html.font-xlarge {
+      --base-font-size: 22px;
+    }
+    body {
+      font-size: var(--base-font-size);
+      background-color: #FBF7F0;
+      color: #1E1B18;
+      font-family: 'Noto Sans TC', sans-serif;
+      background-image: 
+        radial-gradient(#D8CBB8 0.65px, transparent 0.65px), 
+        radial-gradient(#E5DEC9 0.65px, #FBF7F0 0.65px);
+      background-size: 28px 28px;
+      background-position: 0 0, 14px 14px;
+      overflow-x: hidden;
+    }
+
+    /* Traditional Hong Kong Certificate Double Border */
+    .hk-vintage-frame {
+      border: 3px solid #1E1B18;
+      box-shadow: 
+        inset 0 0 0 4px #FBF7F0,
+        inset 0 0 0 6px #C83E2B,
+        0 12px 30px -8px rgba(30, 27, 24, 0.14);
+      position: relative;
+    }
+
+    /* Corner Ornaments */
+    .corner-ornament {
+      width: 22px;
+      height: 22px;
+      border-color: #C83E2B;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* Custom Stamp Effect */
+    .hk-red-stamp {
+      border: 3px solid #C83E2B;
+      color: #C83E2B;
+      font-family: 'Noto Serif TC', serif;
+      transform: rotate(-4deg);
+      box-shadow: inset 0 0 0 1px #C83E2B;
+      letter-spacing: 0.1em;
+    }
+
+    /* Senior-friendly Minimum 64px Touch Target */
+    .senior-btn {
+      min-height: 64px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+    .senior-btn:active {
+      transform: translateY(2px) scale(0.99);
+    }
+
+    /* Soundwave Animation for Voice Input */
+    @keyframes soundwave {
+      0%, 100% { height: 10px; }
+      50% { height: 38px; }
+    }
+    .wave-bar {
+      width: 6px;
+      background-color: #FFFFFF;
+      border-radius: 9999px;
+      animation: soundwave 0.9s ease-in-out infinite;
+    }
+    .wave-bar:nth-child(2) { animation-delay: 0.15s; }
+    .wave-bar:nth-child(3) { animation-delay: 0.3s; }
+    .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+    .wave-bar:nth-child(5) { animation-delay: 0.2s; }
+    .wave-bar:nth-child(6) { animation-delay: 0.35s; }
+
+    /* Pulse Ring for Recording Button */
+    @keyframes pulseRing {
+      0% { box-shadow: 0 0 0 0 rgba(200, 62, 43, 0.55); }
+      70% { box-shadow: 0 0 0 22px rgba(200, 62, 43, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(200, 62, 43, 0); }
+    }
+    .recording-pulse {
+      animation: pulseRing 1.6s infinite;
+    }
+
+    /* Sepia Vintage Photo Filter */
+    .vintage-photo-filter {
+      filter: sepia(0.35) contrast(1.05) brightness(0.98);
+    }
+
+    .hk-photo-frame {
+      background: #FFFDF9;
+      padding: 8px 8px 12px 8px;
+      border: 2px solid #1E1B18;
+      box-shadow: 0 8px 20px -6px rgba(30, 27, 24, 0.22);
+      position: relative;
+    }
+
+    /* Print Styles for Physical Book Export */
+    @media print {
+      body {
+        background: #FFFFFF !important;
+        font-size: 14pt !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-break-inside {
+        break-inside: avoid;
+      }
+      .hk-vintage-frame {
+        box-shadow: none !important;
+        border: 2px solid #1E1B18 !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-stampRed selection:text-white">
+
+  <!-- =========================================================================
+       TOP ACCESSIBILITY & NAVIGATION BAR (Sticky, Senior-First UX)
+  ========================================================================== -->
+  <header class="sticky top-0 z-40 bg-paper/95 backdrop-blur-md border-b-2 border-borderWarm shadow-sm no-print">
+    <div class="max-w-5xl mx-auto px-3 sm:px-6 py-2.5">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        
+        <!-- Brand Logo & Title -->
+        <div class="flex items-center gap-3 cursor-pointer" onclick="goToScreen('onboarding')" title="返回香江出世紙">
+          <div class="w-12 h-12 rounded-xl bg-stampRed text-white flex flex-col items-center justify-center font-serif font-bold border-2 border-ink shadow-sm shrink-0">
+            <span class="text-xs leading-none">香江</span>
+            <span class="text-sm leading-tight">歲月</span>
+          </div>
+          <div>
+            <h1 class="font-serif font-black text-lg sm:text-xl text-ink tracking-tight leading-snug">
+              香江歲月：我的人生自傳
+            </h1>
+            <div class="flex items-center gap-2 text-xs sm:text-sm text-jade font-medium">
+              <span id="autosave-badge" class="inline-flex items-center gap-1 bg-jadeLight text-jadeDark px-2 py-0.5 rounded-full border border-jade/30">
+                <span>✓</span> 已自動儲存進度
+              </span>
+              <span class="hidden md:inline text-inkMuted">｜靈感源自《80億分之1》・新增「日常生活篇」</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accessibility Controls (Large Touch Targets) -->
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Quick Jump to NEW Daily Life Chapter -->
+          <button 
+            onclick="goToChapter(4)"
+            class="px-3.5 py-2.5 rounded-xl border-2 border-stampRed bg-goldLight hover:bg-amber-200/80 text-stampRed font-bold text-sm flex items-center gap-1.5 shadow-sm transition"
+            aria-label="直達日常生活篇">
+            <span>🍵</span>
+            <span>直達「日常生活篇」</span>
+          </button>
+
+          <!-- Deploy as URL & API Key Setup Modal Trigger -->
+          <button 
+            onclick="toggleDeployModal(true)"
+            class="px-3.5 py-2.5 rounded-xl border-2 border-jade bg-jadeLight hover:bg-jade/20 text-jadeDark font-bold text-sm flex items-center gap-1.5 shadow-sm transition"
+            aria-label="發佈成網址與設定">
+            <span>🌐</span>
+            <span>發佈成網址 / API 設定</span>
+          </button>
+
+          <!-- Wireframe & Flow Architecture Modal Trigger -->
+          <button 
+            onclick="toggleWireframeModal(true)"
+            class="px-3.5 py-2.5 rounded-xl border-2 border-ink bg-paperCard hover:bg-paperDark text-ink font-bold text-sm flex items-center gap-1.5 shadow-sm transition"
+            aria-label="檢視介面結構與互動流程圖">
+            <span>📐</span>
+            <span class="hidden sm:inline">介面結構與流程圖</span>
+            <span class="sm:hidden">流程圖</span>
+          </button>
+
+          <!-- Font Size Toggle -->
+          <button 
+            id="btn-font-toggle"
+            onclick="toggleFontSize()"
+            class="px-3.5 py-2.5 rounded-xl border-2 border-ink bg-paperCard hover:bg-paperDark text-ink font-bold text-sm flex items-center gap-1.5 shadow-sm transition"
+            aria-label="切換字體大小">
+            <span>🔍</span>
+            <span id="font-toggle-label">特大字體：關</span>
+          </button>
+
+          <!-- Cantonese TTS Read-Aloud Toggle -->
+          <button 
+            id="btn-tts-toggle"
+            onclick="toggleAutoTTS()"
+            class="px-3.5 py-2.5 rounded-xl border-2 border-jade bg-jade text-white hover:bg-jadeDark font-bold text-sm flex items-center gap-1.5 shadow-sm transition"
+            aria-label="廣東話讀出題目">
+            <span id="tts-icon">🔊</span>
+            <span id="tts-label">廣東話讀題：開</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 6-Chapter Progress Stepper Bar -->
+      <div class="mt-2.5 pt-2 border-t border-borderWarm/70 flex items-center justify-between gap-1 overflow-x-auto pb-1">
+        <button onclick="goToScreen('onboarding')" id="nav-step-onboarding" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold whitespace-nowrap transition flex items-center gap-1">
+          <span>🪪</span> 出世紙
+        </button>
+        <span class="text-borderWarm font-bold">▸</span>
+        <div id="chapter-stepper-container" class="flex items-center gap-1 sm:gap-1.5">
+          <!-- Populated dynamically by JS -->
+        </div>
+        <span class="text-borderWarm font-bold">▸</span>
+        <button onclick="goToScreen('book')" id="nav-step-book" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold whitespace-nowrap transition flex items-center gap-1">
+          <span>📕</span> 完成自傳書
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN WORKSPACE CONTAINER
+  ========================================================================== -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-3 sm:px-6 py-6 sm:py-8">
+
+    <!-- =======================================================================
+         SCREEN 1: 「香江出世紙」(Onboarding Card)
+    ======================================================================== -->
+    <section id="screen-onboarding" class="space-y-6">
+      
+      <!-- Warm Welcome Banner -->
+      <div class="bg-paperDark/90 border-2 border-borderWarm rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-2 text-stampRed font-bold text-sm">
+            <span>🍵</span> 飲啖茶，傾下當年今日（現已加入「日常生活：衣食住行篇」）
+          </div>
+          <h2 class="font-serif font-bold text-xl sm:text-2xl text-ink">
+            唔使自己由頭寫起，揀張記憶卡、開咪講幾句，就有一本屬於你嘅人生自傳。
+          </h2>
+        </div>
+        <div class="flex flex-wrap gap-2 shrink-0">
+          <button 
+            onclick="goToChapter(4)"
+            class="px-4 py-3 rounded-xl bg-stampRed text-white font-bold text-sm hover:bg-stampRedDark transition flex items-center gap-1.5 shadow-sm border border-ink">
+            <span>🫖</span> 體驗新章節：日常生活篇
+          </button>
+          <button 
+            onclick="loadDemoProfileAndBook()"
+            class="px-4 py-3 rounded-xl bg-goldLight border-2 border-gold text-ink font-bold text-sm hover:bg-amber-100 transition flex items-center gap-1.5 shadow-sm">
+            <span>✨</span> 載入「陳伯」完整示範
+          </button>
+        </div>
+      </div>
+
+      <!-- Vintage Hong Kong Birth Certificate Card -->
+      <div class="hk-vintage-frame bg-paperCard rounded-2xl p-5 sm:p-8 md:p-10">
+        <!-- Corner Ornaments -->
+        <div class="corner-ornament top-3 left-3 border-t-4 border-l-4"></div>
+        <div class="corner-ornament top-3 right-3 border-t-4 border-r-4"></div>
+        <div class="corner-ornament bottom-3 left-3 border-b-4 border-l-4"></div>
+        <div class="corner-ornament bottom-3 right-3 border-b-4 border-r-4"></div>
+
+        <!-- Certificate Header -->
+        <div class="text-center border-b-2 border-ink pb-5 mb-6 relative">
+          <p class="text-xs sm:text-sm font-serif tracking-widest text-inkMuted uppercase">
+            HONG KONG LIFE MEMOIR ARCHIVE ・ 香江生命記憶檔案館
+          </p>
+          <h2 class="font-serif font-black text-3xl sm:text-4xl text-ink mt-1 tracking-wider">
+            香 江 出 世 紙
+          </h2>
+          <p class="text-sm sm:text-base text-inkMuted mt-2">
+            填寫簡單起點，系統會自動幫你對齊當年嘅香港歷史大事與集體回憶
+          </p>
+
+          <!-- Official Red Stamp -->
+          <div class="hidden sm:flex hk-red-stamp px-3 py-1.5 rounded font-bold text-xs sm:text-sm absolute right-2 top-1 flex-col items-center leading-tight bg-paperCard/90">
+            <span>香江歲月</span>
+            <span>生命印記</span>
+          </div>
+        </div>
+
+        <!-- Onboarding Featured Photo Banner (Part 1 Photo) -->
+        <div class="mb-7 grid grid-cols-1 md:grid-cols-3 gap-4 bg-paper p-4 rounded-2xl border-2 border-borderWarm items-center">
+          <!-- Senior Personal Portrait Photo Frame -->
+          <div class="hk-photo-frame rounded-xl text-center space-y-2">
+            <div class="relative overflow-hidden rounded-lg h-44 bg-paperDark">
+              <img 
+                id="onboarding-portrait-img"
+                src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=700&q=80" 
+                onerror="this.onerror=null;this.src='https://placehold.co/600x400/D8CBB8/1E1B18?text=香江歲月主角相片';"
+                alt="長者個人珍藏相片" 
+                class="w-full h-full object-cover vintage-photo-filter"
+              />
+              <span class="absolute top-2 left-2 px-2.5 py-0.5 rounded bg-ink/80 text-amber-200 font-bold text-xs">
+                📸 主角珍藏相片
+              </span>
+            </div>
+            <div class="flex items-center justify-between gap-2 px-1">
+              <span class="text-xs font-serif font-bold text-inkMuted">個人出世紙相片</span>
+              <label class="cursor-pointer px-2.5 py-1 rounded-lg bg-goldLight hover:bg-amber-200 text-stampRed border border-gold font-bold text-xs transition no-print">
+                📷 換上我嘅相片
+                <input type="file" accept="image/*" class="hidden" onchange="uploadProfilePhoto(event)" />
+              </label>
+            </div>
+          </div>
+
+          <!-- Old Hong Kong Collective Memory Photo -->
+          <div class="md:col-span-2 hk-photo-frame rounded-xl space-y-2">
+            <div class="relative overflow-hidden rounded-lg h-44 bg-paperDark">
+              <img 
+                src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1000&q=80" 
+                onerror="this.onerror=null;this.src='https://placehold.co/900x450/D8CBB8/1E1B18?text=昔日香江維港與街坊歲月';"
+                alt="昔日香江維港與街坊歲月" 
+                class="w-full h-full object-cover vintage-photo-filter"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3.5">
+                <div class="text-white space-y-0.5">
+                  <div class="text-xs font-bold text-amber-300">🎞️ 香江歷史影像館・起點記憶</div>
+                  <div class="font-serif font-bold text-sm sm:text-base">
+                    每一張老照片背後，都藏住一段獅子山下獨一無二嘅人生故事
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-xs text-inkMuted px-1">
+              <span>📍 昔日香港維多利亞港與兩岸萬家燈火</span>
+              <span class="font-bold text-jadeDark">✓ 每個章節均附設專屬歲月相片</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate Form Fields -->
+        <div class="space-y-7">
+          
+          <!-- Field 1: Name / Nickname -->
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <label for="input-name" class="block font-serif font-bold text-xl sm:text-2xl text-ink">
+                1. 請問點樣稱呼你？（姓名或親切稱呼）
+              </label>
+              <button onclick="speakText('請問點樣稱呼你？你可以輸入自己個名，或者揀下面嘅稱呼。')" class="text-jade font-bold text-sm px-3 py-1.5 rounded-lg bg-jadeLight hover:bg-jade/20 transition flex items-center gap-1">
+                <span>🔊</span> 讀出
+              </button>
+            </div>
+            <input 
+              id="input-name"
+              type="text"
+              placeholder="例如：陳伯、秀蘭姐、李生、文叔..."
+              value="陳伯（陳志強）"
+              oninput="updateOnboardingData()"
+              class="w-full senior-btn px-5 py-4 text-xl sm:text-2xl font-bold bg-paper border-2 border-ink rounded-xl focus:outline-none focus:ring-4 focus:ring-stampRed/30 focus:border-stampRed"
+            />
+            <!-- Quick Preset Name Chips for Seniors / Social Workers -->
+            <div class="flex flex-wrap items-center gap-2 pt-1">
+              <span class="text-sm text-inkMuted">快速點選範例：</span>
+              <button type="button" onclick="setQuickName('陳伯（陳志強）')" class="px-3.5 py-2 rounded-lg bg-paperDark hover:bg-amber-200/70 text-ink font-bold text-sm border border-borderWarm transition">陳伯（陳志強）</button>
+              <button type="button" onclick="setQuickName('秀蘭姐（張秀蘭）')" class="px-3.5 py-2 rounded-lg bg-paperDark hover:bg-amber-200/70 text-ink font-bold text-sm border border-borderWarm transition">秀蘭姐（張秀蘭）</button>
+              <button type="button" onclick="setQuickName('榮叔（黃國榮）')" class="px-3.5 py-2 rounded-lg bg-paperDark hover:bg-amber-200/70 text-ink font-bold text-sm border border-borderWarm transition">榮叔（黃國榮）</button>
+              <button type="button" onclick="setQuickName('芳姨（劉淑芳）')" class="px-3.5 py-2 rounded-lg bg-paperDark hover:bg-amber-200/70 text-ink font-bold text-sm border border-borderWarm transition">芳姨（劉淑芳）</button>
+            </div>
+          </div>
+
+          <!-- Field 2: Birth Decade & Year -->
+          <div class="space-y-3">
+            <label class="block font-serif font-bold text-xl sm:text-2xl text-ink">
+              2. 你係邊個年代出世？（自動匹配當年香港大事）
+            </label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="decade-buttons">
+              <button type="button" onclick="selectDecade(1930, 1938)" data-decade="1930" class="decade-btn senior-btn p-4 rounded-xl border-2 border-ink bg-paper hover:bg-paperDark text-left transition flex flex-col justify-between">
+                <span class="text-xs font-bold opacity-80">民國／戰前歲月</span>
+                <span class="font-serif font-black text-xl sm:text-2xl mt-1">1930年代</span>
+                <span class="text-xs opacity-75 mt-1">約 87–96 歲</span>
+              </button>
+              <button type="button" onclick="selectDecade(1940, 1948)" data-decade="1940" class="decade-btn senior-btn p-4 rounded-xl border-2 border-stampRed bg-stampRed text-white text-left transition flex flex-col justify-between shadow-md">
+                <span class="text-xs font-bold opacity-90">戰後重光歲月</span>
+                <span class="font-serif font-black text-xl sm:text-2xl mt-1">1940年代</span>
+                <span class="text-xs opacity-90 mt-1">約 77–86 歲</span>
+              </button>
+              <button type="button" onclick="selectDecade(1950, 1955)" data-decade="1950" class="decade-btn senior-btn p-4 rounded-xl border-2 border-ink bg-paper hover:bg-paperDark text-left transition flex flex-col justify-between">
+                <span class="text-xs font-bold opacity-80">屋邨與工業起飛</span>
+                <span class="font-serif font-black text-xl sm:text-2xl mt-1">1950年代</span>
+                <span class="text-xs opacity-75 mt-1">約 67–76 歲</span>
+              </button>
+              <button type="button" onclick="selectDecade(1960, 1963)" data-decade="1960" class="decade-btn senior-btn p-4 rounded-xl border-2 border-ink bg-paper hover:bg-paperDark text-left transition flex flex-col justify-between">
+                <span class="text-xs font-bold opacity-80">獅子山下黃金一代</span>
+                <span class="font-serif font-black text-xl sm:text-2xl mt-1">1960年代</span>
+                <span class="text-xs opacity-75 mt-1">約 57–66 歲</span>
+              </button>
+            </div>
+
+            <!-- Specific Birth Year & Direct Age Selector -->
+            <div class="bg-paperDark/70 p-4 rounded-xl border border-borderWarm flex flex-wrap items-center justify-between gap-3">
+              <div class="flex flex-wrap items-center gap-4">
+                <div class="flex items-center gap-2">
+                  <label for="select-birth-year" class="font-bold text-ink">具體出生年份：</label>
+                  <select 
+                    id="select-birth-year"
+                    onchange="onBirthYearSelectChanged(this.value)"
+                    class="px-4 py-2.5 rounded-xl border-2 border-ink bg-paperCard font-serif font-bold text-lg sm:text-xl text-stampRed focus:outline-none cursor-pointer">
+                    <option value="1948">1948年（今年約 78 歲）</option>
+                  </select>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <label for="input-direct-age" class="font-bold text-ink">或直接揀年齡：</label>
+                  <div class="inline-flex items-center bg-paperCard border-2 border-ink rounded-xl overflow-hidden">
+                    <button type="button" onclick="adjustAge(-1)" class="px-3 py-2 bg-paper hover:bg-paperDark font-black text-lg border-r border-ink">－</button>
+                    <input 
+                      id="input-direct-age"
+                      type="number"
+                      min="50"
+                      max="105"
+                      value="78"
+                      oninput="onDirectAgeChanged(this.value)"
+                      class="w-16 text-center font-serif font-black text-lg sm:text-xl text-stampRed bg-transparent focus:outline-none"
+                    />
+                    <span class="pr-2 font-bold text-sm text-inkMuted">歲</span>
+                    <button type="button" onclick="adjustAge(1)" class="px-3 py-2 bg-paper hover:bg-paperDark font-black text-lg border-l border-ink">＋</button>
+                  </div>
+                </div>
+              </div>
+              <div id="era-preview-pill" class="text-sm font-medium text-jadeDark bg-jadeLight px-3.5 py-2 rounded-lg border border-jade/30">
+                ✨ 童年將對齊：1950年代香江街坊歲月、1963年大制水記憶
+              </div>
+            </div>
+          </div>
+
+          <!-- Field 3: Childhood District in Hong Kong -->
+          <div class="space-y-3">
+            <label class="block font-serif font-bold text-xl sm:text-2xl text-ink">
+              3. 你細個或者後生嗰陣，主要喺香港邊區生活？
+            </label>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="district-grid">
+              <!-- Populated by JS -->
+            </div>
+            <div class="pt-1">
+              <input 
+                id="input-custom-district"
+                type="text"
+                placeholder="或者自己輸入地區（例如：西環、紅磡、香港仔、調景嶺...）"
+                oninput="updateCustomDistrict(this.value)"
+                class="w-full px-4 py-3 text-base sm:text-lg bg-paper border-2 border-borderWarm rounded-xl focus:outline-none focus:border-ink"
+              />
+            </div>
+          </div>
+
+          <!-- Summary Preview Strip on Certificate -->
+          <div class="bg-goldLight border-2 border-gold rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="space-y-1">
+              <div class="text-xs font-bold uppercase tracking-wider text-gold">檔案編號：HK-MEMOIR-<span id="cert-serial">1948</span></div>
+              <div class="font-serif font-bold text-lg sm:text-xl text-ink" id="cert-summary-line">
+                主角：陳伯（陳志強）｜1948年出生｜成長於深水埗／石硤尾
+              </div>
+            </div>
+            <div class="text-xs sm:text-sm text-inkMuted font-medium">
+              共 6 個階段（含「🍵 日常生活篇」）・支援廣東話語音及文字
+            </div>
+          </div>
+
+          <!-- Primary CTA Button -->
+          <div class="pt-2 flex flex-col sm:flex-row gap-3">
+            <button 
+              type="button"
+              onclick="startStoryJourney()"
+              class="flex-1 senior-btn bg-stampRed hover:bg-stampRedDark text-white font-serif font-black text-xl sm:text-2xl py-5 px-8 rounded-2xl shadow-lg border-2 border-ink flex items-center justify-center gap-3 transition">
+              <span>開始我的人生故事</span>
+              <span class="text-2xl">→</span>
+            </button>
+            <button 
+              type="button"
+              onclick="goToScreen('book')"
+              class="senior-btn bg-paper hover:bg-paperDark text-ink font-bold text-lg py-4 px-6 rounded-2xl border-2 border-ink flex items-center justify-center gap-2 transition">
+              <span>📕</span>
+              <span>直接睇自傳書預覽</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =======================================================================
+         SCREEN 2 & 3: 6-STAGE GUIDED REMINISCENCE FLOW (Core Game Loop)
+    ======================================================================== -->
+    <section id="screen-chapter" class="hidden space-y-6">
+      
+      <!-- Top Chapter Navigation & Era Header Card -->
+      <div class="hk-vintage-frame bg-paperCard rounded-2xl overflow-hidden">
+        <!-- Dynamic Era Banner with Nostalgic Hong Kong SVG Illustration -->
+        <div class="bg-gradient-to-r from-ink via-stone-800 to-ink text-paper p-5 sm:p-6 relative overflow-hidden">
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 relative z-10">
+            <div class="space-y-1.5 max-w-xl">
+              <div class="flex flex-wrap items-center gap-2">
+                <span id="chapter-badge" class="px-3 py-1 rounded-full bg-stampRed text-white font-bold text-xs sm:text-sm tracking-wide">
+                  第一章（共六章）
+                </span>
+                <span id="chapter-era-years" class="px-3 py-1 rounded-full bg-amber-400/20 text-amber-200 border border-amber-300/40 font-mono font-bold text-xs sm:text-sm">
+                  📅 1948年 – 1960年（0–12歲）
+                </span>
+              </div>
+              <h2 id="chapter-title" class="font-serif font-black text-2xl sm:text-3xl text-white tracking-wide">
+                第一章：落地生根（童年歲月）
+              </h2>
+              <p id="chapter-era-context" class="text-amber-100/90 text-sm sm:text-base leading-relaxed">
+                當年香港正值戰後重建與人口急增，街坊鄰里守望相助，細路仔喺街頭拍公仔紙、跳飛機。
+              </p>
+            </div>
+
+            <!-- Dynamic Nostalgic SVG Illustration Container -->
+            <div id="chapter-svg-illustration" class="w-full md:w-44 h-28 bg-paper/10 rounded-xl border border-paper/20 flex items-center justify-center p-2 shrink-0">
+              <!-- Populated by JS with custom HK SVG art -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Chapter Vintage Photograph Showcase (Every Chapter Has a Photo) -->
+        <div class="p-4 sm:p-6 bg-paper border-b-2 border-borderWarm">
+          <div class="hk-photo-frame rounded-2xl overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center p-2">
+              <div class="md:col-span-7 relative rounded-xl overflow-hidden h-52 sm:h-64 bg-paperDark">
+                <img 
+                  id="chapter-featured-photo"
+                  src="https://images.unsplash.com/photo-1518599807935-37015b9cefcb?auto=format&fit=crop&w=900&q=80"
+                  onerror="this.onerror=null;this.src='https://placehold.co/800x500/D8CBB8/1E1B18?text=香江歲月珍藏相片';"
+                  alt="本章歲月相片"
+                  class="w-full h-full object-cover vintage-photo-filter transition-all duration-500"
+                />
+                <span id="chapter-photo-era-tag" class="absolute top-3 left-3 px-3 py-1 rounded-full bg-ink/85 text-amber-200 font-bold text-xs shadow">
+                  📸 本章歲月珍藏相片
+                </span>
+              </div>
+              <div class="md:col-span-5 p-2 sm:p-4 space-y-3 flex flex-col justify-between">
+                <div class="space-y-1.5">
+                  <div class="inline-flex items-center gap-1.5 text-xs font-bold text-stampRed bg-goldLight px-2.5 py-1 rounded-md border border-gold">
+                    <span>🎞️</span>
+                    <span>視覺記憶觸發（望住相片諗起當年）</span>
+                  </div>
+                  <h4 id="chapter-photo-title" class="font-serif font-black text-xl sm:text-2xl text-ink leading-snug">
+                    昔日香江唐樓與街坊鄰里歲月
+                  </h4>
+                  <p id="chapter-photo-caption" class="text-sm sm:text-base text-inkMuted leading-relaxed">
+                    望住呢張舊相，有無令你諗起細個住過嘅街道、屋企人嘅笑容，或者街頭巷尾嘅熱鬧聲音？
+                  </p>
+                </div>
+
+                <div class="pt-2 border-t border-borderWarm flex flex-wrap items-center gap-2 no-print">
+                  <label class="cursor-pointer px-4 py-2.5 rounded-xl bg-stampRed hover:bg-stampRedDark text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-sm transition">
+                    <span>📷</span>
+                    <span>換上我嘅真實舊相片</span>
+                    <input type="file" accept="image/*" class="hidden" onchange="uploadChapterPhoto(event, state.currentChapterIndex)" />
+                  </label>
+                  <button 
+                    type="button"
+                    id="btn-reset-chapter-photo"
+                    onclick="resetChapterPhoto(state.currentChapterIndex)"
+                    class="hidden px-3 py-2.5 rounded-xl border border-ink bg-paper hover:bg-paperDark text-ink font-bold text-xs">
+                    🔄 還原預設懷舊相
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question Prompt Bar with Cantonese Read-Aloud -->
+        <div class="p-5 sm:p-6 bg-goldLight/70 border-b-2 border-borderWarm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <div class="text-xs sm:text-sm font-bold text-stampRed uppercase tracking-wider">
+              💬 今章懷緬主題問題
+            </div>
+            <h3 id="chapter-main-question" class="font-serif font-bold text-xl sm:text-2xl text-ink leading-snug">
+              細個喺香港生活嗰陣，你屋企附近同童年最深刻嘅畫面係點樣嘅呢？
+            </h3>
+          </div>
+          <button 
+            type="button"
+            onclick="readCurrentChapterPrompt()"
+            class="shrink-0 senior-btn px-5 py-3 rounded-xl bg-jade hover:bg-jadeDark text-white font-bold text-base flex items-center gap-2 shadow-sm transition">
+            <span>🔊</span>
+            <span>廣東話讀題目</span>
+          </button>
+        </div>
+
+        <!-- =================================================================
+             NEW SPECIAL INTERACTIVE MODULE FOR CHAPTER 5:
+             「一日生活作息與屋企好味道」 (Daily Routine & Signature Dish Picker)
+        ================================================================== -->
+        <div id="daily-routine-panel" class="hidden p-5 sm:p-6 bg-amber-50/80 border-b-2 border-gold space-y-5">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gold/40 pb-3">
+            <div class="space-y-1">
+              <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-stampRed text-white font-bold text-xs">
+                🍵 日常生活專屬互動・喚醒程序性長期記憶
+              </span>
+              <h4 class="font-serif font-black text-xl sm:text-2xl text-ink">
+                🕒 我嘅一日生活作息與飲食喜好（撳一下揀選你嘅日常習慣）
+              </h4>
+            </div>
+            <span class="text-xs sm:text-sm text-inkMuted">揀選後會自動寫入你嘅《老友記日常生活檔案》</span>
+          </div>
+
+          <!-- Morning / Afternoon / Evening 3-Column Tag Selector -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Morning -->
+            <div class="bg-paperCard p-4 rounded-2xl border-2 border-borderWarm space-y-3">
+              <div class="relative h-28 rounded-xl overflow-hidden border border-borderWarm">
+                <img 
+                  src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" 
+                  onerror="this.onerror=null;this.src='https://placehold.co/600x300/D8CBB8/1E1B18?text=朝早飲早茶一盅兩件';"
+                  alt="朝早飲茶與晨運" 
+                  class="w-full h-full object-cover vintage-photo-filter"
+                />
+                <span class="absolute bottom-1.5 left-2 px-2 py-0.5 rounded bg-ink/80 text-white text-xs font-bold">🌅 朝早一盅兩件</span>
+              </div>
+              <div class="font-serif font-bold text-lg text-stampRed flex items-center gap-2">
+                <span>🌅</span> 朝早習慣（Morning）
+              </div>
+              <div id="routine-tags-morning" class="flex flex-wrap gap-2">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+
+            <!-- Afternoon -->
+            <div class="bg-paperCard p-4 rounded-2xl border-2 border-borderWarm space-y-3">
+              <div class="relative h-28 rounded-xl overflow-hidden border border-borderWarm">
+                <img 
+                  src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80" 
+                  onerror="this.onerror=null;this.src='https://placehold.co/600x300/D8CBB8/1E1B18?text=晏晝煲老火湯與下午茶';"
+                  alt="晏晝煲老火湯與消遣" 
+                  class="w-full h-full object-cover vintage-photo-filter"
+                />
+                <span class="absolute bottom-1.5 left-2 px-2 py-0.5 rounded bg-ink/80 text-white text-xs font-bold">☀️ 晏晝老火靚湯</span>
+              </div>
+              <div class="font-serif font-bold text-lg text-gold flex items-center gap-2">
+                <span>☀️</span> 晏晝時光（Afternoon）
+              </div>
+              <div id="routine-tags-afternoon" class="flex flex-wrap gap-2">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+
+            <!-- Evening -->
+            <div class="bg-paperCard p-4 rounded-2xl border-2 border-borderWarm space-y-3">
+              <div class="relative h-28 rounded-xl overflow-hidden border border-borderWarm">
+                <img 
+                  src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" 
+                  onerror="this.onerror=null;this.src='https://placehold.co/600x300/D8CBB8/1E1B18?text=夜晚一家人齊人開飯';"
+                  alt="夜晚一家人開飯與睇電視" 
+                  class="w-full h-full object-cover vintage-photo-filter"
+                />
+                <span class="absolute bottom-1.5 left-2 px-2 py-0.5 rounded bg-ink/80 text-white text-xs font-bold">🌙 夜晚齊人開飯</span>
+              </div>
+              <div class="font-serif font-bold text-lg text-jadeDark flex items-center gap-2">
+                <span>🌙</span> 夜晚生活（Evening）
+              </div>
+              <div id="routine-tags-evening" class="flex flex-wrap gap-2">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Signature Family Dish / Favourite Dim Sum Input -->
+          <div class="bg-paperCard p-4 rounded-2xl border-2 border-gold flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            <img 
+              src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80" 
+              onerror="this.onerror=null;this.src='https://placehold.co/300x200/D8CBB8/1E1B18?text=屋企招牌住家菜';"
+              alt="屋企招牌好味道" 
+              class="w-full sm:w-32 h-28 object-cover rounded-xl border-2 border-ink vintage-photo-filter shrink-0"
+            />
+            <div class="space-y-1 flex-1">
+              <label for="input-signature-dish" class="block font-serif font-bold text-base sm:text-lg text-ink">
+                🍲 你最拿手煮、或者屋企最常食嘅「招牌住家菜／老火湯／最愛點心」係咩？
+              </label>
+              <input 
+                id="input-signature-dish"
+                type="text"
+                oninput="updateSignatureDish(this.value)"
+                placeholder="例如：青紅蘿蔔煲豬骨湯、鹹魚蒸肉餅、蝦餃燒賣、叉燒包..."
+                class="w-full px-4 py-2.5 text-base sm:text-lg font-bold bg-paper border-2 border-ink rounded-xl focus:outline-none focus:border-stampRed"
+              />
+            </div>
+            <div class="flex flex-wrap gap-1.5 sm:max-w-xs">
+              <span class="w-full text-xs text-inkMuted font-bold">快速點選招牌味道：</span>
+              <button type="button" onclick="setSignatureDish('青紅蘿蔔煲豬骨湯＋鹹魚蒸肉餅')" class="px-2.5 py-1.5 rounded-lg bg-goldLight hover:bg-amber-200 text-xs font-bold border border-gold text-ink">🥣 青紅蘿蔔湯＋蒸肉餅</button>
+              <button type="button" onclick="setSignatureDish('一盅兩件（蝦餃、燒賣、叉燒包）')" class="px-2.5 py-1.5 rounded-lg bg-goldLight hover:bg-amber-200 text-xs font-bold border border-gold text-ink">🫖 蝦餃燒賣叉燒包</button>
+              <button type="button" onclick="setSignatureDish('薑蔥霸王雞＋蓮藕綠豆煲章魚湯')" class="px-2.5 py-1.5 rounded-lg bg-goldLight hover:bg-amber-200 text-xs font-bold border border-gold text-ink">🍗 薑蔥雞＋蓮藕章魚湯</button>
+            </div>
+          </div>
+
+          <!-- Favourite Restaurant / Teahouse / Bing Sutt Input -->
+          <div class="bg-paperCard p-4 rounded-2xl border-2 border-stampRed/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            <img 
+              src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=400&q=80" 
+              onerror="this.onerror=null;this.src='https://placehold.co/300x200/D8CBB8/1E1B18?text=最愛茶樓與冰室';"
+              alt="最愛幫襯嘅茶樓與冰室" 
+              class="w-full sm:w-32 h-28 object-cover rounded-xl border-2 border-ink vintage-photo-filter shrink-0"
+            />
+            <div class="space-y-1 flex-1">
+              <label for="input-favourite-restaurant" class="block font-serif font-bold text-base sm:text-lg text-ink">
+                🏪 你平時最愛幫襯邊間「茶樓／冰室／大排檔／老字號餐廳」？（最常同邊個去？）
+              </label>
+              <input 
+                id="input-favourite-restaurant"
+                type="text"
+                oninput="updateFavouriteRestaurant(this.value)"
+                placeholder="例如：屋企樓下順景茶居、蓮香樓、美都冰室、深水埗大排檔..."
+                class="w-full px-4 py-2.5 text-base sm:text-lg font-bold bg-paper border-2 border-ink rounded-xl focus:outline-none focus:border-stampRed"
+              />
+            </div>
+            <div class="flex flex-wrap gap-1.5 sm:max-w-xs">
+              <span class="w-full text-xs text-inkMuted font-bold">快速點選常去餐廳：</span>
+              <button type="button" onclick="setFavouriteRestaurant('屋企樓下熟絡舊茶居（同街坊茶友一盅兩件）')" class="px-2.5 py-1.5 rounded-lg bg-goldLight hover:bg-amber-200 text-xs font-bold border border-gold text-ink">🫖 屋企樓下熟絡茶居</button>
+              <button type="button" onclick="setFavouriteRestaurant('蓮香樓／陸羽茶室（傳統點心車舊式茶樓）')" class="px-2.5 py-1.5 rounded-lg bg-goldLight hover:bg-amber-200 text-xs font-bold border border-gold text-ink">🏮 蓮香樓／傳統大茶樓</button>
+              <button type="button" onclick="setFavouriteRestaurant('美都冰室／金鳳茶餐廳（絲襪奶茶配出爐蛋撻）')" class="px-2.5 py-1.5 rounded-lg bg-goldLight hover:bg-amber-200 text-xs font-bold border border-gold text-ink">🍍 懷舊冰室／茶餐廳</button>
+              <button type="button" onclick="setFavouriteRestaurant('街坊大排檔／潮州打冷（夠晒鑊氣同人情味）')" class="px-2.5 py-1.5 rounded-lg bg-goldLight hover:bg-amber-200 text-xs font-bold border border-gold text-ink">🔥 街坊大排檔／打冷</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- =================================================================
+             STEP A: 4 WARM-UP MEMORY TRIGGER CARDS (先選卡・喚醒記憶)
+        ================================================================== -->
+        <div class="p-5 sm:p-6 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-8 h-8 rounded-full bg-stampRed text-white font-bold flex items-center justify-center text-sm">1</span>
+              <h4 class="font-serif font-bold text-lg sm:text-xl text-ink">
+                第一步：先揀一張最貼近你經歷嘅「記憶卡」（幫你熱身醒起往事）
+              </h4>
+            </div>
+            <span class="text-xs sm:text-sm text-inkMuted">撳一下卡片即可選取</span>
+          </div>
+
+          <!-- 4 Choice Cards Grid -->
+          <div id="memory-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+
+        <!-- =================================================================
+             STEP B: DUAL VOICE + TEXT INPUT MODULE (開咪講故仔 / 打字 / AI 潤飾)
+        ================================================================== -->
+        <div id="step-b-input-area" class="p-5 sm:p-6 bg-paper border-t-2 border-borderWarm space-y-6">
+          
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-8 h-8 rounded-full bg-jade text-white font-bold flex items-center justify-center text-sm">2</span>
+              <h4 class="font-serif font-bold text-lg sm:text-xl text-ink">
+                第二步：用廣東話開咪講故仔，或者用文字寫低你嘅回憶
+              </h4>
+            </div>
+
+            <!-- Star Memory Toggle (Inspired by 1in8b.life "替記憶加星") -->
+            <button 
+              type="button"
+              id="btn-star-memory"
+              onclick="toggleStarCurrentChapter()"
+              class="px-4 py-2.5 rounded-xl border-2 border-gold bg-paperCard hover:bg-goldLight font-bold text-sm sm:text-base flex items-center gap-2 transition shadow-sm">
+              <span id="star-icon" class="text-xl">☆</span>
+              <span id="star-label">標記為人生重要記憶</span>
+            </button>
+          </div>
+
+          <!-- GIANT CANTONESE VOICE RECORDING PANEL -->
+          <div class="bg-paperCard border-2 border-ink rounded-2xl p-4 sm:p-6 shadow-sm space-y-4">
+            <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+              
+              <!-- Giant Tap-to-Record Button -->
+              <button 
+                type="button"
+                id="btn-voice-record"
+                onclick="toggleVoiceRecording()"
+                class="flex-1 senior-btn py-5 px-6 rounded-2xl bg-stampRed hover:bg-stampRedDark text-white font-serif font-black text-xl sm:text-2xl border-2 border-ink shadow-md flex items-center justify-center gap-3.5 transition">
+                <span id="record-btn-icon" class="text-3xl">🎤</span>
+                <div class="text-left">
+                  <div id="record-btn-text">撳一下開始講故仔（廣東話語音）</div>
+                  <div id="record-btn-subtext" class="text-xs sm:text-sm font-sans font-normal text-white/90">
+                    講完再撳一下就識停，系統會自動變成文字同保存錄音
+                  </div>
+                </div>
+              </button>
+
+              <!-- Simulated Voice Input Button (For testing without mic or when senior wants an example) -->
+              <button 
+                type="button"
+                onclick="simulateCantoneseVoiceInput()"
+                class="senior-btn px-5 py-4 rounded-2xl bg-jadeLight hover:bg-jade/20 text-jadeDark border-2 border-jade font-bold text-sm sm:text-base flex flex-col items-center justify-center shrink-0 transition"
+                title="如果無開咪高峰權限，可以撳呢度模擬長者廣東話口述">
+                <span class="text-lg">🎙️ 模擬長者開咪口述</span>
+                <span class="text-xs font-normal text-jadeDark/80">（免咪高峰即時測試）</span>
+              </button>
+            </div>
+
+            <!-- Microphone Device Selector & Voice-to-Text Engine Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-2 px-3.5 py-2.5 rounded-xl bg-paper border border-borderWarm text-xs sm:text-sm">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="font-bold text-ink">🎙️ 收音咪高峰：</span>
+                <select 
+                  id="mic-device-select"
+                  onchange="onMicDeviceChange(this.value)"
+                  class="px-2.5 py-1 rounded-lg border border-ink bg-paperCard font-bold text-ink max-w-[220px] sm:max-w-xs truncate">
+                  <option value="">預設麥克風（自動偵測）</option>
+                </select>
+                <button 
+                  type="button"
+                  onclick="refreshMicDeviceList()"
+                  class="px-2.5 py-1 rounded-lg bg-paperDark hover:bg-amber-200/70 text-ink font-bold border border-borderWarm transition">
+                  🔄 重新整理咪高峰
+                </button>
+              </div>
+              <div class="text-inkMuted font-medium">
+                ✨ 支援即時廣東話轉字 ＋ 錄音結束 AI 自動轉譯雙重保障
+              </div>
+            </div>
+
+            <!-- Live Recording Status & Soundwave Indicator -->
+            <div id="recording-status-bar" class="hidden bg-stampRed/10 border-2 border-stampRed rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <span class="w-4 h-4 rounded-full bg-stampRed animate-ping shrink-0"></span>
+                <div>
+                  <div class="font-bold text-stampRed text-base sm:text-lg" id="recording-status-title">正在聆聽你講廣東話... 請對住咪高峰慢慢講</div>
+                  <div class="text-xs sm:text-sm text-inkMuted" id="live-interim-transcript">正在接收真實麥克風訊號...（講完請再撳一下黑色大掣停止）</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 self-end sm:self-center">
+                <!-- Live Mic Volume Meter Bars -->
+                <div id="live-mic-visualizer" class="flex items-end gap-1 h-10 px-3 py-1.5 bg-stampRed rounded-lg">
+                  <div class="mic-level-bar w-1.5 bg-white rounded-full transition-all duration-75" style="height: 8px;"></div>
+                  <div class="mic-level-bar w-1.5 bg-white rounded-full transition-all duration-75" style="height: 12px;"></div>
+                  <div class="mic-level-bar w-1.5 bg-white rounded-full transition-all duration-75" style="height: 16px;"></div>
+                  <div class="mic-level-bar w-1.5 bg-white rounded-full transition-all duration-75" style="height: 12px;"></div>
+                  <div class="mic-level-bar w-1.5 bg-white rounded-full transition-all duration-75" style="height: 8px;"></div>
+                  <div class="mic-level-bar w-1.5 bg-white rounded-full transition-all duration-75" style="height: 14px;"></div>
+                </div>
+                <span id="recording-timer" class="font-mono font-bold text-lg text-stampRed">00:00</span>
+              </div>
+            </div>
+
+            <!-- Microphone Permission / Error Diagnostic Banner -->
+            <div id="mic-error-banner" class="hidden bg-amber-50 border-2 border-stampRed rounded-xl p-4 space-y-2">
+              <div class="font-bold text-stampRed text-sm sm:text-base flex items-center gap-2">
+                <span>⚠️</span>
+                <span id="mic-error-title">未能開啟麥克風錄音</span>
+              </div>
+              <p id="mic-error-desc" class="text-xs sm:text-sm text-ink leading-relaxed whitespace-pre-line">
+                請確認瀏覽器網址列左方已允許「麥克風（Microphone）」權限。如果喺預覽視窗受權限限制，你亦可以撳右邊「🎙️ 模擬長者開咪口述」或直接打字輸入。
+              </p>
+            </div>
+
+            <!-- Saved Audio Clip Indicator (with native audio player for real recorded voice) -->
+            <div id="saved-audio-bar" class="hidden bg-jadeLight border border-jade/40 rounded-xl px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div class="flex items-center gap-2.5 text-jadeDark font-bold text-sm sm:text-base">
+                <span>📼</span>
+                <span id="saved-audio-label">已保存本章節廣東話原聲記憶（00:18）</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <audio id="native-recorded-audio-player" controls class="hidden h-9 max-w-[210px] sm:max-w-xs rounded-lg"></audio>
+                <button 
+                  type="button"
+                  id="btn-retranscribe-audio"
+                  onclick="retranscribeSavedAudio()"
+                  class="hidden px-3.5 py-2 rounded-lg bg-amber-100 hover:bg-amber-200 text-ink border border-gold font-bold text-xs sm:text-sm transition flex items-center gap-1">
+                  <span>📝</span> <span>AI 重新將錄音轉成文字</span>
+                </button>
+                <button 
+                  type="button"
+                  onclick="playChapterAudio(state.currentChapterIndex)"
+                  class="px-4 py-2 rounded-lg bg-jade text-white font-bold text-sm hover:bg-jadeDark transition flex items-center gap-1.5">
+                  <span>▶️</span> <span id="play-audio-btn-text">試聽我嘅原聲／粵語朗讀</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Nostalgic Hong Kong Vocabulary Quick-Tap Chips -->
+            <div class="space-y-1.5 pt-1">
+              <div class="text-xs sm:text-sm font-bold text-inkMuted">
+                💡 撳一下加入當年常用詞彙（方便補充細節）：
+              </div>
+              <div id="era-vocab-chips" class="flex flex-wrap gap-2">
+                <!-- Populated dynamically per chapter -->
+              </div>
+            </div>
+
+            <!-- Large Editable Text Area for Spoken Cantonese / Family Typing -->
+            <div class="space-y-2">
+              <label for="chapter-raw-input" class="block font-bold text-sm sm:text-base text-ink flex items-center justify-between">
+                <span>📝 你嘅口述記錄／文字內容（可以直接修改或由家人幫手打字）：</span>
+                <button type="button" onclick="clearCurrentChapterText()" class="text-xs text-inkMuted hover:text-stampRed underline">清空重寫</button>
+              </label>
+              <textarea 
+                id="chapter-raw-input"
+                rows="4"
+                oninput="onRawInputChanged(this.value)"
+                placeholder="揀咗上面嘅記憶卡之後，撳紅色大掣開咪講故仔，或者喺呢度打字..."
+                class="w-full p-4 text-lg sm:text-xl leading-relaxed bg-paper border-2 border-ink rounded-xl focus:outline-none focus:ring-4 focus:ring-jade/25 focus:border-jade"
+              ></textarea>
+            </div>
+
+            <!-- ===============================================================
+                 AI REMINISCENCE ASSISTANT (Gemini API Follow-up & Polish)
+            ================================================================ -->
+            <div class="pt-2 border-t border-borderWarm space-y-4">
+              <div class="flex flex-col sm:flex-row gap-3">
+                <!-- Mode 1: AI Gentle Follow-up Question -->
+                <button 
+                  type="button"
+                  id="btn-ai-followup"
+                  onclick="triggerAIFollowUp()"
+                  class="flex-1 senior-btn px-5 py-3.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-ink border-2 border-gold font-bold text-base sm:text-lg flex items-center justify-center gap-2 shadow-sm transition">
+                  <span>💬</span>
+                  <span>AI 溫柔追問（幫我諗起更多細節）</span>
+                </button>
+
+                <!-- Mode 2: AI Polish into Autobiography Paragraph -->
+                <button 
+                  type="button"
+                  id="btn-ai-polish"
+                  onclick="triggerAIPolish()"
+                  class="flex-1 senior-btn px-5 py-3.5 rounded-xl bg-jade hover:bg-jadeDark text-white border-2 border-ink font-bold text-base sm:text-lg flex items-center justify-center gap-2 shadow-sm transition">
+                  <span>✨</span>
+                  <span>AI 幫我整理成自傳段落</span>
+                </button>
+              </div>
+
+              <!-- AI Follow-Up Question Display Box -->
+              <div id="ai-followup-box" class="hidden bg-goldLight border-2 border-gold rounded-2xl p-4 sm:p-5 space-y-3">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="inline-flex items-center gap-1.5 font-bold text-sm text-stampRed">
+                    <span>🍵</span> AI 懷緬伴侶溫柔追問：
+                  </span>
+                  <button type="button" onclick="speakAIFollowUp()" class="px-3 py-1 rounded-lg bg-paperCard border border-gold text-ink font-bold text-xs sm:text-sm flex items-center gap-1">
+                    <span>🔊</span> 廣東話讀出追問
+                  </button>
+                </div>
+                <p id="ai-followup-text" class="font-serif font-bold text-lg sm:text-xl text-ink leading-relaxed"></p>
+                <p class="text-xs sm:text-sm text-inkMuted">
+                  💡 你可以再撳上面「🎤 開始講故仔」或者直接喺文字框補充回答呢條問題！
+                </p>
+              </div>
+
+              <!-- AI Polished Autobiography Dual-Version Preview Box -->
+              <div id="ai-polished-box" class="hidden bg-jadeLight/70 border-2 border-jade rounded-2xl p-4 sm:p-5 space-y-3">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-lg">📖</span>
+                    <span class="font-serif font-bold text-base sm:text-lg text-jadeDark">
+                      已為你整理好自傳段落（可隨時切換文體）：
+                    </span>
+                  </div>
+                  <!-- Style Toggle: Spoken Cantonese vs Written Memoir -->
+                  <div class="inline-flex rounded-xl bg-paperCard p-1 border border-jade/40">
+                    <button 
+                      type="button"
+                      id="tab-style-cantonese"
+                      onclick="switchPolishedStyle('cantonese')"
+                      class="px-3 py-1.5 rounded-lg font-bold text-xs sm:text-sm transition bg-jade text-white">
+                      🗣️ 親切廣東話口語版
+                    </button>
+                    <button 
+                      type="button"
+                      id="tab-style-written"
+                      onclick="switchPolishedStyle('written')"
+                      class="px-3 py-1.5 rounded-lg font-bold text-xs sm:text-sm transition text-ink hover:bg-paperDark">
+                      ✒️ 溫馨書面語傳記版
+                    </button>
+                  </div>
+                </div>
+
+                <div id="ai-polished-content" class="p-4 bg-paperCard rounded-xl border border-jade/30 font-serif text-lg sm:text-xl text-ink leading-relaxed">
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+                  <span class="text-xs sm:text-sm text-jadeDark">✓ 呢段內容已經自動收錄入你嘅《香江歲月》自傳書入面</span>
+                  <button type="button" onclick="speakPolishedText()" class="px-3.5 py-1.5 rounded-lg bg-jade text-white font-bold text-xs sm:text-sm flex items-center gap-1">
+                    <span>🔊</span> 朗讀呢段自傳
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chapter Footer Navigation (Previous, Emotional Safe Skip, Save & Next) -->
+          <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            <button 
+              type="button"
+              onclick="prevChapter()"
+              class="senior-btn px-5 py-3.5 rounded-xl border-2 border-ink bg-paperCard hover:bg-paperDark text-ink font-bold text-base sm:text-lg flex items-center justify-center gap-2 transition">
+              <span>←</span>
+              <span
